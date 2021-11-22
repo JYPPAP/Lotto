@@ -1,6 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /** 1. 기본 폰트 변경. 2. 사용자의 확대/축소를 비활성화 하지 않고 iOS 텍스트 크기 조정 방지 */
-html { font-family: "맑은 고딕", "Malgun Gothic", "돋움", "dotum", sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+html { font-family: "나눔바른고딕", "NanumBarunGothic", sans-serif; /* 1 */ -ms-text-size-adjust: 100%; /* 2 */ -webkit-text-size-adjust: 100%; /* 2 */ }
 
 /** 기본 여백 제거 */
 body { margin: 0;}
