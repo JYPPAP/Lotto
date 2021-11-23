@@ -6,6 +6,7 @@
   max-width: 2560px;
   min-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   background-position: center;
   &:nth-child(1) {
     height: 888px;
@@ -26,17 +27,11 @@
 .content2 { height: 962px;}
 .content3 { position: relative; top: 62px; height: 115px;}
 
-/* TEST */
-.content_wrap {
-  display: block;
-  // background-color: rgba($color: #000000, $alpha: .3);
-  border: 1px solid transparent;
-}
 /* 공통 적용 */
 .excMark {
   display: inline-block;
   text-align: left;
-  content: '!';
+  content: '';
   width: 18px;
   height: 18px;
   background-color: #fff;
@@ -51,7 +46,7 @@
 
 /* content1 */
 .content1_box {
-  margin-top: 380px;
+  padding-top: 380px;
   width: 100%;
 }
 #lottoResult {
@@ -83,6 +78,7 @@
     display: block;
   }
   .lottoNumber {
+    visibility: hidden;
     float: left;
     width: 113px;
     height: 113px;
@@ -105,7 +101,7 @@
     &.grayNum { background-color: #a5a5a5; }
   }
 }
-.checkBtn {
+#checkBtn {
   width: 237px;
   height: 77px;
   margin: 0 auto;
@@ -128,7 +124,7 @@
 /* content2 */
 .content2_box {
   width: 100%;
-  margin-top: 296px;
+  padding-top: 296px;
   text-align: center;
   .correctResult {
     color: #515151;
@@ -180,17 +176,6 @@
     height: 310px;
     background-image: url(../images/img_04.png);
     cursor: pointer;
-    /* 이렇게 만드는것이 아닌 JS에 넣는 것도 괜찮을 것 같음. (자동화) */
-    &:nth-child(1) { left: 0;}
-    &:nth-child(2) { left: 343px;}
-    &:nth-child(3) { left: 686px;}
-    &:nth-child(4) { left: 1029px;}
-    &:nth-child(5) { left: 1372px;}
-    &:nth-child(6) { left: 1715px;}
-    &:nth-child(7) { left: 2058px;}
-    &:nth-child(8) { left: 2401px;}
-    &:nth-child(9) { left: 2744px;}
-    &:nth-child(10) { left: 3087px;}
     .episodeNumber {
       color: #0059ab;
       font-size: 26px;
@@ -203,11 +188,11 @@
       color: #515151;
       font-size: 20px;
       font-weight: bold;
-      text-align-last: left;
+      text-align: left;
       margin-left: 100px;
     }
   }
-  .slideLeftBtn, .slideRightBtn {
+  #slideLeftBtn, #slideRightBtn {
     width: 37px;
     height: 82px;
     position: absolute;
@@ -215,16 +200,17 @@
     transform: translateY(-50%);
     cursor: pointer;
   }
-  .slideLeftBtn {
+  #slideLeftBtn {
+    display: none;
     left: 40px;
     background-image: url(../images/icon_rev.png);
   }
-  .slideRightBtn {
+  #slideRightBtn {
     left: 1121px;
     background-image: url(../images/icon_next.png);
   }
 }
-.watchBtn {
+#watchBtn {
   width: 523px;
   height: 137px;
   margin: 0 auto;
