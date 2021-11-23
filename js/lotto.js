@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
   xhr.send();
 
   xhr.onreadystatechange = function () {
-    console.log(`[${xhr.status}] : ${xhr.statusText}`);
+    console.log("["+ xhr.status+"] : "+xhr.statusText);
     // 서버 응답 완료 && 정상 응답
     if (xhr.readyState !== XMLHttpRequest.DONE) return;
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // document.getElementById('content').innerHTML = newContent;
     } else {
-      console.log(`[${xhr.status}] : ${xhr.statusText}`);
+      console.log("["+xhr.status+"] : "+xhr.statusText);
     }
   };
 
