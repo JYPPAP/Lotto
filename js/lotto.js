@@ -1,42 +1,49 @@
 // "use strict";
 document.addEventListener("DOMContentLoaded", function () {
+
   /*###################
-        번호 추천
+        날짜 출력
   ###################*/
   var todayShow = document.getElementById("today");
   var today = new Date();
-  var checkBtn = document.getElementById("checkBtn");
-  var lottoNumber = Array.prototype.slice.call(document.getElementsByClassName("lottoNumber"));
-  var totalNumber = [];
-  var clickFlag = false
 
-  /* 오늘 날짜 */
   var year = today.getFullYear();
   var month = ('0' + (today.getMonth() + 1)).slice(-2);
   var day = ('0' + (today.getDate())).slice(-2);
   
   todayShow.textContent = "("+year+". "+month+". "+day+")";
 
-  /* 로또 숫자배열 생성 */
+  /*###################
+        번호 추천
+  ###################*/
+  var checkBtn = document.getElementById("checkBtn");
+  var lottoNumber = Array.prototype.slice.call(document.getElementsByClassName("lottoNumber"));
+  var totalNumber = [];
+  var clickFlag = false
+
   for (var i = 0; i < 45; i++) {totalNumber[i] = i + 1;}
 
   checkBtn.onclick = function() {
     /* 연속클릭 방지 */
     if(clickFlag) return true;
+
     lottoNumber.map(function (num) {
       num.textContent = "";
       num.style.visibility = "hidden";
     });
+
     clickFlag = true;
     return clickFlag, selectNumber();
   }
   
   function selectNumber() {
     var randomArray = [];
+
     for (var i = 0; i < 7; i++) {
       var randomNum = Math.floor(Math.random() * 45) + 1;
       randomArray[i] = randomNum;
     }
+
     return checkNumber(randomArray);
   }
 
@@ -46,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (randomArray.indexOf(item) == index)
       return item;
     });
+
     if (filterArray.length !== 7) {
       console.log("중복: "+filterArray);
       return selectNumber();
@@ -62,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if ( a === b) return 0;
       if (a < b) return -1;
     });
+
     return setNumber(lastNum, sortArray);
   }
 
@@ -70,8 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
       lottoNumber[i].textContent = sortArray[i];
       checkColor();
     }
+
     lottoNumber[lottoNumber.length-1].textContent = lastNum;
     checkColor();
+
     return showNumber();
   }
 
@@ -94,16 +105,20 @@ document.addEventListener("DOMContentLoaded", function () {
   function showNumber() {
     for (var i=0; i<lottoNumber.length; i++) {
       var showCount = 0;
+
       setTimeout(function() {
         lottoNumber[showCount].style.visibility ="visible";
         showCount++;
       }, (1000*i));
     }
+
     setTimeout(function() {
       clickFlag = false;
     }, (1000 * lottoNumber.length));
+
     return clickFlag
   }
+  
   /*###################
         적중 내역
   ###################*/
