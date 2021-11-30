@@ -131,9 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
         Ajax
   ###################*/
   var epiNum = Array.prototype.slice.call(document.getElementsByClassName("episodeNumber"));
-  var rank1 = Array.prototype.slice.call(document.getElementsByClassName("rank1"));
-  var rank2 = Array.prototype.slice.call(document.getElementsByClassName("rank2"));
-  var rank3 = Array.prototype.slice.call(document.getElementsByClassName("rank3"));
+  var rank1 = document.getElementsByClassName("rank1");
+  var rank2 = document.getElementsByClassName("rank2");
+  var rank3 = document.getElementsByClassName("rank3");
   var xhr = new XMLHttpRequest();
 
   xhr.open('GET', 'json/lotto.json');
@@ -146,6 +146,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (xhr.status === 200) {
       var parseValue = JSON.parse(xhr.responseText);
+      
+      /* 내부의 값이 숫자형이기 때문에 Object.keys로 변환 후 사용.
+      IE호환을 위해 keys.map을 사용.
+       */
       var kValue = Object.keys(parseValue);
       var vValue = Object.keys(parseValue).map(function(ele) {
         return parseValue[ele]
