@@ -33,35 +33,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     clickFlag = true;
-    return clickFlag, selectNumber();
+    shuffle(totalNumber);
+    return clickFlag
+  }
+
+  function shuffle(array) {
+    for (let index = array.length - 1; index > 0; index--) {
+    // 무작위 index 값을 만든다. (0 이상의 배열 길이 값) 
+      var randomPosition = Math.floor(Math.random() * (index + 1));
+      // 임시로 원본 값을 저장하고, randomPosition을 사용해 배열 요소를 섞는다. 
+      var temporary = array[index]; array[index] = array[randomPosition];
+      array[randomPosition] = temporary; 
+    } 
   }
   
-  function selectNumber() {
-    var randomArray = [];
+  // function selectNumber() {
+  //   var randomArray = [];
 
-    for (var i = 0; i < 7; i++) {
-      var randomNum = Math.floor(Math.random() * 45) + 1;
-      randomArray[i] = randomNum;
-    }
+  //   for (var i = 0; i < 7; i++) {
+  //     var randomNum = Math.floor(Math.random() * 45) + 1;
+  //     randomArray[i] = randomNum;
+  //   }
 
-    return checkNumber(randomArray);
-  }
+  //   return checkNumber(randomArray);
+  // }
 
-  function checkNumber (randomArray) {
-    /* 중복 확인 */
-    var filterArray = randomArray.filter(function(item, index) {
-      if (randomArray.indexOf(item) == index)
-      return item;
-    });
+  // function checkNumber (randomArray) {
+  //   /* 중복 확인 */
+  //   var filterArray = randomArray.filter(function(item, index) {
+  //     if (randomArray.indexOf(item) == index)
+  //     return item;
+  //   });
 
-    if (filterArray.length !== 7) {
-      console.log("중복: "+filterArray);
-      return selectNumber();
-    } else {
-      console.log("통과: "+filterArray);
-      return sortNumber(filterArray);
-    }
-  }
+  //   if (filterArray.length !== 7) {
+  //     console.log("중복: "+filterArray);
+  //     return selectNumber();
+  //   } else {
+  //     console.log("통과: "+filterArray);
+  //     return sortNumber(filterArray);
+  //   }
+  // }
 
   function sortNumber(filterArray) {
     var lastNum = filterArray.pop();
